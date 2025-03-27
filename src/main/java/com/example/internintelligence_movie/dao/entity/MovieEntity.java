@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -23,7 +22,7 @@ public class MovieEntity {
     private Integer releaseYear;
     @ElementCollection
     @Enumerated(EnumType.STRING)
-    private Set<GenreType> genre;
+    private Set<GenreType> genres;
     private Double IMDbRating;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})

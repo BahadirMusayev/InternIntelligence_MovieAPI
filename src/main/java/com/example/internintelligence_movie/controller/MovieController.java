@@ -1,7 +1,8 @@
 package com.example.internintelligence_movie.controller;
 
 import com.example.internintelligence_movie.dao.entity.enums.GenreType;
-import com.example.internintelligence_movie.model.MovieDto;
+import com.example.internintelligence_movie.model.MovieDtoInput;
+import com.example.internintelligence_movie.model.MovieDtoOutput;
 import com.example.internintelligence_movie.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,14 @@ import java.util.Set;
 public class MovieController {
     private final MovieService movieService;
 
-    @PostMapping("/add")
-    public void addMovie(@RequestBody MovieDto movieDto,
+    @PostMapping("/create")
+    public void addMovie(@RequestBody MovieDtoInput movieDtoInput,
                          @RequestParam("genre") Set<GenreType> genre){
-        movieService.addMovie(movieDto, genre);
+        movieService.addMovie(movieDtoInput, genre);
+    }
+
+    @GetMapping("/read")
+    public List<MovieDtoOutput> getMovies(@RequestParam("title") String title){
+        return movieService.getMovies(title);
     }
 }

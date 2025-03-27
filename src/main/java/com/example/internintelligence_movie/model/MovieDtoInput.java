@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class MovieDto {
+public class MovieDtoInput {
     private String title;
     private Integer releaseYear;
     private Double IMDbRating;
