@@ -11,13 +11,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class MovieService {
+
     private final MovieRepository movieRepository;
     private final MovieMapper movieMapper;
 
@@ -26,12 +26,10 @@ public class MovieService {
         log.info("Add Movie Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCase(movieDto.getTitle());
+                findByTitleIgnoreCaseAndReleaseYear(movieDto.getTitle(), movieDto.getReleaseYear());
 
         if (movieEntity != null) {
-            if (movieDto.getReleaseYear().equals(movieEntity.getReleaseYear())) {
-                throw new FoundException("This Movie is Found !");
-            }
+            throw new FoundException("This Movie is Found !");
         }
 
         MovieEntity movie = movieMapper.mapDtoToEntity(movieDto);
@@ -39,5 +37,9 @@ public class MovieService {
         movieRepository.save(movie);
 
         log.info("Add Movie Ended ");
+    }
+
+    public MovieDto getMovie(){
+
     }
 }
