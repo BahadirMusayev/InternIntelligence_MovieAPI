@@ -1,10 +1,13 @@
 package com.example.internintelligence_movie.dao.entity;
 
+import com.example.internintelligence_movie.dao.entity.enums.GenreType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -17,14 +20,16 @@ public class MovieEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    private String releaseYear;
+    private Integer releaseYear;
+    @ElementCollection
+    @Enumerated(EnumType.STRING)
+    private Set<GenreType> genre;
     private Double IMDbRating;
 
-    @ManyToMany(mappedBy = "movies", fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.PERSIST})
-    private Set<DirectorEntity> directors;
-
-    @ManyToMany(mappedBy = "movies", fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.PERSIST})
-    private Set<GenreEntity> genres;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "director_id", referencedColumnName = "id")
+    @JsonBackReference
+    private DirectorEntity director;
 
     public MovieEntity(){
     }
