@@ -36,7 +36,7 @@ public class MovieService {
                         movieDtoInput.getReleaseYear(), movieDtoInput.getDirector());
 
         if (movieEntity != null) {
-                throw new FoundException("This Movie is Found !");
+            throw new FoundException("This Movie is Found !");
         }
 
         MovieEntity movie = movieMapper.mapDtoInputToEntity(movieDtoInput);
@@ -122,5 +122,21 @@ public class MovieService {
         directorRepository.save(directorEntity);
 
         log.info("Update Director Ended ");
+    }
+
+    public void delete(EditDto editDto) {
+        log.info("Delete Started... ");
+
+        MovieEntity movieEntity = movieRepository.
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(editDto.getTitle(),
+                        editDto.getReleaseYear(), editDto.getDirector());
+
+        if (movieEntity == null) {
+            throw new NotFoundException("This Movie is Not Found !");
+        }
+
+        movieRepository.deleteById(movieEntity.getId());
+
+        log.info("Delete Ended ");
     }
 }

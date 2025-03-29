@@ -25,7 +25,7 @@ public class MovieEntity {
     private List<GenreType> genres;
     private Double IMDbRating;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.PERSIST})
     @JoinColumn(name = "director_id", referencedColumnName = "id")
     @JsonBackReference
     private DirectorEntity director;

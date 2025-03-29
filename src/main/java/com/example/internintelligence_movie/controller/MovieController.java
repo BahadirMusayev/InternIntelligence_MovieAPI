@@ -18,36 +18,41 @@ public class MovieController {
 
     @PostMapping("/create")
     public void add(@RequestBody MovieDtoInput movieDtoInput,
-                         @RequestParam("genre") List<GenreType> genre){
+                    @RequestParam("genre") List<GenreType> genre) {
         movieService.add(movieDtoInput, genre);
     }
 
     @GetMapping("/read")
-    public List<MovieDtoOutput> get(@RequestParam("title") String title){
+    public List<MovieDtoOutput> get(@RequestParam("title") String title) {
         return movieService.get(title);
     }
 
     @PatchMapping("/update/title")
     public void updateTitle(@RequestBody EditDto editDto,
-                               @RequestParam("newTitle") String newTitle){
+                            @RequestParam("newTitle") String newTitle) {
         movieService.updateTitle(editDto, newTitle);
     }
 
     @PatchMapping("/update/release/year")
     public void updateReleaseYear(@RequestBody EditDto editDto,
-                                     @RequestParam("newReleaseYear") Integer newReleaseYear){
+                                  @RequestParam("newReleaseYear") Integer newReleaseYear) {
         movieService.updateReleaseYear(editDto, newReleaseYear);
     }
 
     @PatchMapping("/update/IMDb/rating")
     public void updateIMDbRating(@RequestBody EditDto editDto,
-                                    @RequestParam("newIMDbRating") Double newIMDbRating){
+                                 @RequestParam("newIMDbRating") Double newIMDbRating) {
         movieService.updateIMDbRating(editDto, newIMDbRating);
     }
 
     @PatchMapping("/update/director")
     public void updateDirector(@RequestBody EditDto editDto,
-                                  @RequestParam("newDirector") String newDirector){
+                               @RequestParam("newDirector") String newDirector) {
         movieService.updateDirector(editDto, newDirector);
+    }
+
+    @DeleteMapping("/delete")
+    public void delete(@RequestBody EditDto editDto) {
+        movieService.delete(editDto);
     }
 }
