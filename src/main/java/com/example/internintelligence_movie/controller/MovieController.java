@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/movie")
 public class MovieController {
+
     private final MovieService movieService;
 
     @PostMapping("/create")
