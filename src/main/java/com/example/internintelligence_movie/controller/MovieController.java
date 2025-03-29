@@ -18,7 +18,7 @@ public class MovieController {
 
     @PostMapping("/create")
     public void addMovie(@RequestBody MovieDtoInput movieDtoInput,
-                         @RequestParam("genre") Set<GenreType> genre){
+                         @RequestParam("genre") List<GenreType> genre){
         movieService.addMovie(movieDtoInput, genre);
     }
 

@@ -24,7 +24,7 @@ public class MovieService {
     private final MovieMapper movieMapper;
 
     @Transactional
-    public void addMovie(MovieDtoInput movieDtoInput, Set<GenreType> genre) {
+    public void addMovie(MovieDtoInput movieDtoInput, List<GenreType> genre) {
         log.info("Add Movie Started... ");
 
         MovieEntity movieEntity = movieRepository.
@@ -46,6 +46,8 @@ public class MovieService {
 
         List<MovieEntity> movieEntities = movieRepository.
                 findByTitleIgnoreCase(title);
-        return movieMapper.mapEntityToDtoOutputs(movieEntities);
+        List<MovieDtoOutput> movieDtoOutputs = movieMapper.
+                mapEntityToDtoOutputs(movieEntities);
+        return movieDtoOutputs;
     }
 }
