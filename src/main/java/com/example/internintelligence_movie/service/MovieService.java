@@ -63,7 +63,7 @@ public class MovieService {
                         editDto.getReleaseYear(), editDto.getDirector());
 
         if (movieEntity == null) {
-            throw new NotFoundException("This Movie is Found !");
+            throw new NotFoundException("This Movie is Not Found !");
         }
 
         movieEntity.setTitle(newTitle);
@@ -80,7 +80,7 @@ public class MovieService {
                         editDto.getReleaseYear(), editDto.getDirector());
 
         if (movieEntity == null) {
-            throw new NotFoundException("This Movie is Found !");
+            throw new NotFoundException("This Movie is Not Found !");
         }
 
         movieEntity.setReleaseYear(newReleaseYear);
@@ -97,7 +97,7 @@ public class MovieService {
                         editDto.getReleaseYear(), editDto.getDirector());
 
         if (movieEntity == null) {
-            throw new NotFoundException("This Movie is Found !");
+            throw new NotFoundException("This Movie is Not Found !");
         }
 
         movieEntity.setIMDbRating(newIMDbRating);
@@ -114,7 +114,7 @@ public class MovieService {
                         editDto.getReleaseYear(), editDto.getDirector());
 
         if (movieEntity == null) {
-            throw new NotFoundException("This Movie is Found !");
+            throw new NotFoundException("This Movie is Not Found !");
         }
 
         DirectorEntity directorEntity = movieEntity.getDirector();
