@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class EditDto {
+public class UpdateDto {
     private String title;
     private Integer releaseYear;
     private String director;

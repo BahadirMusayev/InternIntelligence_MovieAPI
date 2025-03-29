@@ -8,7 +8,7 @@ import com.example.internintelligence_movie.dao.exception.NotFoundException;
 import com.example.internintelligence_movie.dao.repository.DirectorRepository;
 import com.example.internintelligence_movie.dao.repository.MovieRepository;
 import com.example.internintelligence_movie.mapper.MovieMapper;
-import com.example.internintelligence_movie.model.EditDto;
+import com.example.internintelligence_movie.model.UpdateDto;
 import com.example.internintelligence_movie.model.MovieDtoInput;
 import com.example.internintelligence_movie.model.MovieDtoOutput;
 import jakarta.transaction.Transactional;
@@ -55,12 +55,12 @@ public class MovieService {
                 mapEntityToDtoOutputs(movieEntities);
     }
 
-    public void updateTitle(EditDto editDto, String newTitle) {
+    public void updateTitle(UpdateDto updateDto, String newTitle) {
         log.info("Update Title Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(editDto.getTitle(),
-                        editDto.getReleaseYear(), editDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
+                        updateDto.getReleaseYear(), updateDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
@@ -72,12 +72,12 @@ public class MovieService {
         log.info("Update Title Ended ");
     }
 
-    public void updateReleaseYear(EditDto editDto, Integer newReleaseYear) {
+    public void updateReleaseYear(UpdateDto updateDto, Integer newReleaseYear) {
         log.info("Update Release Year Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(editDto.getTitle(),
-                        editDto.getReleaseYear(), editDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
+                        updateDto.getReleaseYear(), updateDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
@@ -89,12 +89,12 @@ public class MovieService {
         log.info("Update Release Year Ended ");
     }
 
-    public void updateIMDbRating(EditDto editDto, Double newIMDbRating) {
+    public void updateIMDbRating(UpdateDto updateDto, Double newIMDbRating) {
         log.info("Update IMDb Rating Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(editDto.getTitle(),
-                        editDto.getReleaseYear(), editDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
+                        updateDto.getReleaseYear(), updateDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
@@ -106,12 +106,12 @@ public class MovieService {
         log.info("Update IMDb Rating Ended ");
     }
 
-    public void updateDirector(EditDto editDto, String newDirector) {
+    public void updateDirector(UpdateDto updateDto, String newDirector) {
         log.info("Update Director Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(editDto.getTitle(),
-                        editDto.getReleaseYear(), editDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
+                        updateDto.getReleaseYear(), updateDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
@@ -124,12 +124,12 @@ public class MovieService {
         log.info("Update Director Ended ");
     }
 
-    public void delete(EditDto editDto) {
+    public void delete(UpdateDto updateDto) {
         log.info("Delete Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(editDto.getTitle(),
-                        editDto.getReleaseYear(), editDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
+                        updateDto.getReleaseYear(), updateDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
