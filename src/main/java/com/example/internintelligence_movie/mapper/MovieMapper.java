@@ -1,14 +1,11 @@
 package com.example.internintelligence_movie.mapper;
 
 import com.example.internintelligence_movie.dao.entity.MovieEntity;
-import com.example.internintelligence_movie.dao.entity.enums.GenreType;
 import com.example.internintelligence_movie.model.MovieDtoInput;
 import com.example.internintelligence_movie.model.MovieDtoOutput;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Named;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Mapper(componentModel = "spring")

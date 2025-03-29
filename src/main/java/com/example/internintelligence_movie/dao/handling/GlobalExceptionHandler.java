@@ -1,6 +1,7 @@
 package com.example.internintelligence_movie.dao.handling;
 
 import com.example.internintelligence_movie.dao.exception.FoundException;
+import com.example.internintelligence_movie.dao.exception.NotFoundException;
 import com.example.internintelligence_movie.model.ExceptionDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(FoundException.class)
     public ExceptionDto foundHandler(RuntimeException exception){
         log.info("302 - Found !");
+        return new ExceptionDto(exception.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException.class)
+    public ExceptionDto notFoundHandler(RuntimeException exception){
+        log.info("404 - Not Found !");
         return new ExceptionDto(exception.getMessage());
     }
 
