@@ -17,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Slf4j
@@ -28,7 +29,7 @@ public class MovieService {
     private final DirectorRepository directorRepository;
 
     @Transactional
-    public void add(MovieDtoInput movieDtoInput, List<GenreType> genre) {
+    public void add(MovieDtoInput movieDtoInput, Set<GenreType> genre) {
         log.info("Add Started... ");
 
         MovieEntity movieEntity = movieRepository.

@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,7 +20,7 @@ public class MovieController {
 
     @PostMapping("/create")
     public void add(@RequestBody MovieDtoInput movieDtoInput,
-                    @RequestParam("genre") List<GenreType> genre) {
+                    @RequestParam("genre") Set<GenreType> genre) {
         movieService.add(movieDtoInput, genre);
     }
 

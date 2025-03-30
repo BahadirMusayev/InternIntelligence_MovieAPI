@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,5 +19,5 @@ public class MovieDtoOutput {
     private Integer releaseYear;
     private Double IMDbRating;
     private String director;
-    private List<GenreType> genres;
+    private Set<GenreType> genres;
 }

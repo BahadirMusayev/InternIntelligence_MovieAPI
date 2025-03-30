@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -21,7 +22,7 @@ public class DirectorEntity {
 
     @OneToMany(mappedBy = "director")
     @JsonManagedReference
-    private Set<MovieEntity> movies;
+    private List<MovieEntity> movies;
 
     public DirectorEntity(){
     }
