@@ -11,6 +11,7 @@ import com.example.internintelligence_movie.mapper.MovieMapper;
 import com.example.internintelligence_movie.model.UpdateDto;
 import com.example.internintelligence_movie.model.MovieDtoInput;
 import com.example.internintelligence_movie.model.MovieDtoOutput;
+import com.example.internintelligence_movie.service.impl.MovieServiceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,12 +23,13 @@ import java.util.Set;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class MovieService {
+public class MovieService implements MovieServiceImpl {
 
     private final MovieRepository movieRepository;
     private final MovieMapper movieMapper;
     private final DirectorRepository directorRepository;
 
+    @Override
     @Transactional
     public void add(MovieDtoInput movieDtoInput, Set<GenreType> genre) {
         log.info("Add Started... ");
@@ -47,6 +49,7 @@ public class MovieService {
         log.info("Add Ended ");
     }
 
+    @Override
     public List<MovieDtoOutput> get(String title) {
         log.info("Get Started... ");
 
@@ -56,6 +59,8 @@ public class MovieService {
                 mapEntityToDtoOutputs(movieEntities);
     }
 
+    @Override
+    @Transactional
     public void updateTitle(UpdateDto updateDto, String newTitle) {
         log.info("Update Title Started... ");
 
@@ -73,6 +78,8 @@ public class MovieService {
         log.info("Update Title Ended ");
     }
 
+    @Override
+    @Transactional
     public void updateReleaseYear(UpdateDto updateDto, Integer newReleaseYear) {
         log.info("Update Release Year Started... ");
 
@@ -90,6 +97,8 @@ public class MovieService {
         log.info("Update Release Year Ended ");
     }
 
+    @Override
+    @Transactional
     public void updateIMDbRating(UpdateDto updateDto, Double newIMDbRating) {
         log.info("Update IMDb Rating Started... ");
 
@@ -107,6 +116,8 @@ public class MovieService {
         log.info("Update IMDb Rating Ended ");
     }
 
+    @Override
+    @Transactional
     public void updateDirector(UpdateDto updateDto, String newDirector) {
         log.info("Update Director Started... ");
 
@@ -125,6 +136,8 @@ public class MovieService {
         log.info("Update Director Ended ");
     }
 
+    @Override
+    @Transactional
     public void delete(UpdateDto updateDto) {
         log.info("Delete Started... ");
 
