@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DirectorRepository extends JpaRepository<DirectorEntity, Integer> {
-    DirectorEntity findByNameIgnoreCase(String name);
 }
