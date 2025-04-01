@@ -8,7 +8,7 @@ import com.example.internintelligence_movie.dao.exception.NotFoundException;
 import com.example.internintelligence_movie.dao.repository.DirectorRepository;
 import com.example.internintelligence_movie.dao.repository.MovieRepository;
 import com.example.internintelligence_movie.mapper.MovieMapper;
-import com.example.internintelligence_movie.model.UpdateDto;
+import com.example.internintelligence_movie.model.CRUDDto;
 import com.example.internintelligence_movie.model.input.MovieDtoInput;
 import com.example.internintelligence_movie.model.output.MovieDtoOutput;
 import com.example.internintelligence_movie.service.impl.MovieServiceImpl;
@@ -61,12 +61,12 @@ public class MovieService implements MovieServiceImpl {
 
     @Override
     @Transactional
-    public void updateTitle(UpdateDto updateDto, String newTitle) {
+    public void updateTitle(CRUDDto CRUDDto, String newTitle) {
         log.info("Update Title Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
-                        updateDto.getReleaseYear(), updateDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(CRUDDto.getTitle(),
+                        CRUDDto.getReleaseYear(), CRUDDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
@@ -80,12 +80,12 @@ public class MovieService implements MovieServiceImpl {
 
     @Override
     @Transactional
-    public void updateReleaseYear(UpdateDto updateDto, Integer newReleaseYear) {
+    public void updateReleaseYear(CRUDDto CRUDDto, Integer newReleaseYear) {
         log.info("Update Release Year Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
-                        updateDto.getReleaseYear(), updateDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(CRUDDto.getTitle(),
+                        CRUDDto.getReleaseYear(), CRUDDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
@@ -99,12 +99,12 @@ public class MovieService implements MovieServiceImpl {
 
     @Override
     @Transactional
-    public void updateIMDbRating(UpdateDto updateDto, Double newIMDbRating) {
+    public void updateIMDbRating(CRUDDto CRUDDto, Double newIMDbRating) {
         log.info("Update IMDb Rating Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
-                        updateDto.getReleaseYear(), updateDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(CRUDDto.getTitle(),
+                        CRUDDto.getReleaseYear(), CRUDDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
@@ -118,12 +118,12 @@ public class MovieService implements MovieServiceImpl {
 
     @Override
     @Transactional
-    public void updateDirector(UpdateDto updateDto, String newDirector) {
+    public void updateDirector(CRUDDto CRUDDto, String newDirector) {
         log.info("Update Director Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
-                        updateDto.getReleaseYear(), updateDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(CRUDDto.getTitle(),
+                        CRUDDto.getReleaseYear(), CRUDDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");
@@ -138,12 +138,12 @@ public class MovieService implements MovieServiceImpl {
 
     @Override
     @Transactional
-    public void delete(UpdateDto updateDto) {
+    public void delete(CRUDDto CRUDDto) {
         log.info("Delete Started... ");
 
         MovieEntity movieEntity = movieRepository.
-                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(updateDto.getTitle(),
-                        updateDto.getReleaseYear(), updateDto.getDirector());
+                findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(CRUDDto.getTitle(),
+                        CRUDDto.getReleaseYear(), CRUDDto.getDirector());
 
         if (movieEntity == null) {
             throw new NotFoundException("This Movie is Not Found !");

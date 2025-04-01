@@ -1,7 +1,7 @@
 package com.example.internintelligence_movie.controller;
 
 import com.example.internintelligence_movie.dao.entity.enums.GenreType;
-import com.example.internintelligence_movie.model.UpdateDto;
+import com.example.internintelligence_movie.model.CRUDDto;
 import com.example.internintelligence_movie.model.input.MovieDtoInput;
 import com.example.internintelligence_movie.model.output.MovieDtoOutput;
 import com.example.internintelligence_movie.service.MovieService;
@@ -30,31 +30,31 @@ public class MovieController {
     }
 
     @PatchMapping("/update/title")
-    public void updateTitle(@RequestBody UpdateDto updateDto,
+    public void updateTitle(@RequestBody CRUDDto CRUDDto,
                             @RequestParam("newTitle") String newTitle) {
-        movieService.updateTitle(updateDto, newTitle);
+        movieService.updateTitle(CRUDDto, newTitle);
     }
 
     @PatchMapping("/update/release/year")
-    public void updateReleaseYear(@RequestBody UpdateDto updateDto,
+    public void updateReleaseYear(@RequestBody CRUDDto CRUDDto,
                                   @RequestParam("newReleaseYear") Integer newReleaseYear) {
-        movieService.updateReleaseYear(updateDto, newReleaseYear);
+        movieService.updateReleaseYear(CRUDDto, newReleaseYear);
     }
 
     @PatchMapping("/update/IMDb/rating")
-    public void updateIMDbRating(@RequestBody UpdateDto updateDto,
+    public void updateIMDbRating(@RequestBody CRUDDto CRUDDto,
                                  @RequestParam("newIMDbRating") Double newIMDbRating) {
-        movieService.updateIMDbRating(updateDto, newIMDbRating);
+        movieService.updateIMDbRating(CRUDDto, newIMDbRating);
     }
 
     @PatchMapping("/update/director")
-    public void updateDirector(@RequestBody UpdateDto updateDto,
+    public void updateDirector(@RequestBody CRUDDto CRUDDto,
                                @RequestParam("newDirector") String newDirector) {
-        movieService.updateDirector(updateDto, newDirector);
+        movieService.updateDirector(CRUDDto, newDirector);
     }
 
     @DeleteMapping("/delete")
-    public void delete(@RequestBody UpdateDto updateDto) {
-        movieService.delete(updateDto);
+    public void delete(@RequestBody CRUDDto CRUDDto) {
+        movieService.delete(CRUDDto);
     }
 }
