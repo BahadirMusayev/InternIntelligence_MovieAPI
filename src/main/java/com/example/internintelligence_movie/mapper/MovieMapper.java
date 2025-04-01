@@ -1,8 +1,8 @@
 package com.example.internintelligence_movie.mapper;
 
 import com.example.internintelligence_movie.dao.entity.MovieEntity;
-import com.example.internintelligence_movie.model.MovieDtoInput;
-import com.example.internintelligence_movie.model.MovieDtoOutput;
+import com.example.internintelligence_movie.model.input.MovieDtoInput;
+import com.example.internintelligence_movie.model.output.MovieDtoOutput;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

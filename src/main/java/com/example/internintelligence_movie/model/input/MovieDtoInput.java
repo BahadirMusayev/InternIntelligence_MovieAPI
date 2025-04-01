@@ -1,4 +1,4 @@
-package com.example.internintelligence_movie.model;
+package com.example.internintelligence_movie.model.input;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

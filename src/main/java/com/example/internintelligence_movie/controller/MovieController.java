@@ -2,8 +2,8 @@ package com.example.internintelligence_movie.controller;
 
 import com.example.internintelligence_movie.dao.entity.enums.GenreType;
 import com.example.internintelligence_movie.model.UpdateDto;
-import com.example.internintelligence_movie.model.MovieDtoInput;
-import com.example.internintelligence_movie.model.MovieDtoOutput;
+import com.example.internintelligence_movie.model.input.MovieDtoInput;
+import com.example.internintelligence_movie.model.output.MovieDtoOutput;
 import com.example.internintelligence_movie.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

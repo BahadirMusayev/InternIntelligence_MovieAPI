@@ -1,4 +1,4 @@
-package com.example.internintelligence_movie.model;
+package com.example.internintelligence_movie.model.output;
 
 
 import com.example.internintelligence_movie.dao.entity.enums.GenreType;
