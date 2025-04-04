@@ -28,8 +28,6 @@ public class MovieEntity {
     private Integer releaseYear;
     @ElementCollection
     @Enumerated(EnumType.STRING)
-//    @CollectionTable(name = "movie_entity_genres", joinColumns = @JoinColumn(name = "movie_entity_id"))
-//    @Column(name = "genres")
     @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "genres")
     private Set<GenreType> genres;
     private Double IMDbRating;
