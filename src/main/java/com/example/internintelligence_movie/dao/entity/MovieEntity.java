@@ -13,7 +13,10 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "movies")
+@Table(name = "movies", indexes = {
+        @Index(name = "idx_movie_title", columnList = "title"),
+        @Index(name = "idx_movie_releaseYear", columnList = "releaseYear"),
+        @Index(name = "idx_barber_director_id", columnList = "director_id")})
 public class MovieEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

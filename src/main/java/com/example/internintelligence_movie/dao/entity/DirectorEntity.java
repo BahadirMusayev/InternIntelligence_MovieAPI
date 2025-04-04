@@ -12,7 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "directors")
+@Table(name = "directors",
+        indexes = @Index(name = "idx_director_name", columnList = "name"))
 public class DirectorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
