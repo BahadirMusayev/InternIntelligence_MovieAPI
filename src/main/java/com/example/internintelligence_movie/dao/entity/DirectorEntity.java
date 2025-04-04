@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 @Entity
 @Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "directors")
 @Table(name = "directors",
         indexes = @Index(name = "idx_director_name", columnList = "name"))
 public class DirectorEntity {

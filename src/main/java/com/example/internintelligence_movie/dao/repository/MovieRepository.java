@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface MovieRepository extends JpaRepository<MovieEntity, Integer> {
+    @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))
     MovieEntity findByTitleIgnoreCaseAndReleaseYearAndDirector_Name(String title, Integer releaseYear, String director);
     @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))
     List<MovieEntity> findByTitleIgnoreCase(String title);
