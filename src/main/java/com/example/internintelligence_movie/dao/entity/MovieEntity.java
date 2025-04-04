@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.Set;
 
@@ -13,6 +14,8 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "movies", indexes = {
         @Index(name = "idx_movie_title", columnList = "title"),
         @Index(name = "idx_movie_releaseYear", columnList = "releaseYear"),
